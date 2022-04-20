@@ -7,8 +7,8 @@ import smtplib
 
 app = Flask(__name__)
 
-host = "mail.stackx.online"
-sender_email = "info@stackx.online"
+host = "mail.stackxsolutions.in"
+sender_email = "info@stackxsolutions.in"
 email_pass = "StackX@123"
 
 def send_email(user, pwd, recipient, subject, body):
