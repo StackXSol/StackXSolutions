@@ -7,13 +7,11 @@ import smtplib
 
 app = Flask(__name__)
 
-host = "mail.stackxsolutions.in"
+host_mail = "mail.stackxsolutions.in"
 sender_email = "info@stackxsolutions.in"
 email_pass = "StackX@123"
 
 def send_email(user, pwd, recipient, subject, body):
-
-
     FROM = user
     TO = recipient if isinstance(recipient, list) else [recipient]
     SUBJECT = subject
@@ -23,7 +21,7 @@ def send_email(user, pwd, recipient, subject, body):
     message = """From: %s\nTo: %s\nSubject: %s\n\n%s
     """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
 
-    with smtplib.SMTP_SSL(host="mail.stackx.online") as smtp:
+    with smtplib.SMTP_SSL(host=host_mail) as smtp:
         smtp.login(user,pwd)
         smtp.sendmail(user,TO,message)
         smtp.quit()
